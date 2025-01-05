@@ -8,11 +8,12 @@ TELEGRAM_BOT_TOKEN = '7609901584:AAG0-gjNJfr86uI7PtGYOEsP51Cl6auSIss  # Ganti de
 CHAT_ID = '1443788288'  # Ganti dengan chat ID Anda
 
 # Fungsi untuk mengirim pesan ke Telegram
-def send_message_to_telegram(message):
+def send_message_to_telegram(message, parse_mode='MarkdownV2'):
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
         'chat_id': CHAT_ID,
-        'text': message
+        'text': message,
+        'parse_mode': parse_mode  # Menambahkan parse_mode
     }
     requests.post(url, data=payload)
 
@@ -85,7 +86,8 @@ def create_account_and_get_token(num_accounts):
             print(f"Akun berhasil dibuat dengan email : {email}")
             
             # Kirim email ke Telegram dengan nomor urutan
-            send_message_to_telegram(f"Akun ke-{account_number} berhasil dibuat dengan email: {email}")
+            message = f"Akun ke{account_number} berhasil dibuat dengan email: ` {email.replace('-', '\\-')} `"
+            send_message_to_telegram(message=message, parse_mode='MarkdownV2')
             
             # Sekarang, buat permintaan untuk mendapatkan token
             payload_token = {
