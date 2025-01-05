@@ -4,7 +4,7 @@ import random
 import time
 
 # Token bot Telegram dan chat ID
-TELEGRAM_BOT_TOKEN = '7609901584:AAG0-gjNJfr86uI7PtGYOEsP51Cl6auSIss  # Ganti dengan token bot Anda
+TELEGRAM_BOT_TOKEN = '7609901584:AAG0-gjNJfr86uI7PtGYOEsP51Cl6auSIss'  # Ganti dengan token bot Anda
 CHAT_ID = '1443788288'  # Ganti dengan chat ID Anda
 
 # Fungsi untuk mengirim pesan ke Telegram
